@@ -1,7 +1,12 @@
-### Adding new genres: Thriller, Crime, Mystery, Romance and War
+# Adding new genres: Thriller, Crime, Mystery, Romance and War
 INSERT INTO category(name) 
 VALUES ('Thriller'), ('Crime'), ('Mystery'),('Romance'),('War')
 
-### Updateing genre for film *African Egg* to Thriller
+# Updating genre for film African Egg to Thriller 
+## Finding African Egg film_id (it is 5)
 SELECT * FROM film WHERE title=’African Egg’
+## Replacing genre with Thriller (category_id for Thriller is 84)
+UPDATE film_category SET category_id =84 WHERE film_id =5
 
+# Deleting mystery genre from category table
+DELETE FROM category WHERE name=’mystery’
