@@ -8,6 +8,8 @@ the main questions they’d like to answer:
 ● Which countries are Rockbuster customers based in?
 ● Where are customers with a high lifetime value based?
 ● Do sales figures vary between geographic regions?
+
 Data set used was provided by Rockbuster and contained the following datasets;
 - payment, rental, store, film_actor, actor, inventory, film, film_category, category, customer, staff, address, city, country, language.
+- 
 [Tableau storyboard](https://public.tableau.com/app/profile/zunair8838/viz/Rockbusterstealth/bottom10movies)
