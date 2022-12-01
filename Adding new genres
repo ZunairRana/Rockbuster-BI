@@ -1,6 +1,7 @@
 ### Adding new genres: Thriller, Crime, Mystery, Romance and War
-'INSERT INTO category(name) 
-VALUES ('Thriller'), ('Crime'), ('Mystery'),('Romance'),('War')'
+INSERT INTO category(name) 
+VALUES ('Thriller'), ('Crime'), ('Mystery'),('Romance'),('War')
+
 ### Updateing genre for film *African Egg* to Thriller
-'SELECT * FROM film WHERE title=’African Egg’'
+SELECT * FROM film WHERE title=’African Egg’
 
