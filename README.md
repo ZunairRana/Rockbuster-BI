@@ -17,7 +17,7 @@ the main questions they’d like to answer:
 
 ## Data
 
-Data set used was provided by Rockbuster and contained the following datasets;
+Data set used was provided by Rockbuster and contained the following tables within the ERD;
 - payment, rental, store, film_actor, actor, inventory, film, film_category, category, customer, staff, address, city, country, language.
 
 [Tableau storyboard](https://public.tableau.com/app/profile/zunair8838/viz/Rockbusterstealth/bottom10movies)
