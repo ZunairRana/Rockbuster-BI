@@ -3,13 +3,13 @@ most recent release year, and then by highest to lowest rental rate:
 
 SELECT film_id, title, release_year, rental_rate
 FROM film
-ORDER BY rental_rate DESC
+ORDER BY rental_rate DESC;
 
 Query for average rental rate for each rating category:
 
 SELECT rating, AVG(rental_rate)
 FROM film
-GROUP BY rating
+GROUP BY rating;
 
 Average rental rate and min/ max rental duration for each rating category:
 
@@ -17,4 +17,4 @@ SELECT rating, AVG(rental_rate) AS average_rental_rate,
 MIN(rental_duration) AS minimum_rental_duration,
 MAX(rental_duration) AS maximum_rental_duration
 FROM film
-GROUP BY rating
+GROUP BY rating;
