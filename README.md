@@ -1,9 +1,7 @@
 # Rockbuster-BI
 Analysis of the PostgreSQL Sample Database using advanced SQL techniques (careerfoundry Data Analytics course)
 
-The Rockbuster Stealth Management Board has asked a series of business questions and
-they expect data-driven answers that they can use for their 2020 company strategy. Here are
-the main questions they’d like to answer:
+The Rockbuster Stealth Management Board has asked a series of business questions and they expect data-driven answers that they can use for their 2020 company strategy. Here are the main questions they’d like to answer:
 
 ● Which movies contributed the most/least to revenue gain?
 
@@ -17,7 +15,8 @@ the main questions they’d like to answer:
 
 ## Data
 
-Data set used was provided by Rockbuster and contained the following tables within the ERD;
-- payment, rental, store, film_actor, actor, inventory, film, film_category, category, customer, staff, address, city, country, language.
+Open-source tutorial data provided by careerfoundry available [here](dvdrental.tar)
+
+##Results
 
 [Tableau storyboard](https://public.tableau.com/app/profile/zunair8838/viz/Rockbusterstealth/bottom10movies)
