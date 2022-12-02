@@ -1,0 +1,96 @@
+# Find out if the film table and the customer table contain any dirty data, specifically non-uniform or duplicate data, or missing values.
+
+1. Chceck for duplicates in film table (result - no duplicates found):
+
+-- Shows only those records that duplicate
+SELECT film_id, title, description, release_year, language_id, rental_duration, rental_rate, length,
+replacement_cost, rating, last_update, special_features, COUNT (*)
+FROM film
+GROUP BY film_id, title, description, release_year, language_id, rental_duration, rental_rate, length,
+replacement_cost, rating, last_update, special_features
+HAVING COUNT (*) >1;
+
+2. Check for duplicates in customer table (result - no duplicates found):
+
+-- Shows only those records that duplicate
+SELECT customer_id, store_id, first_name, last_name, email, address_id, activebool, active, COUNT(*)
+FROM customer
+GROUP BY customer_id, store_id, first_name, last_name, email, address_id, activebool, active
+HAVING COUNT (*) >1
+
+3. Check film table for non-uniform data:
+
+SELECT DISTINCT rating
+FROM film
+GROUP BY rating;
+
+4. Check customer table for non-uniform data:
+
+SELECT DISTINCT customer_id, store_id, first_name, last_name, email, address_id, activebool,
+create_data, active
+FROM customer;
+
+No non-uniform data was found.
+If there was non-uniform data, we could use the UPDATE query to change non-unform 
+values to the standardised format e.g.
+UPDATE customer 
+SET activebool= true
+WHERE activebool IN (‘T’, ‘t’)
+This would change the values ‘T’ and ‘t’ in the activebool column of the customer 
+table to the standardised format ‘true’.
+
+# Calculate descriptive statistics for both the film table and the customer table. For numerical columns, 
+finding the minimum, maximum, and average values. For non-numerical columns, calculate the mode value.
+
+1. Descriptive statistics for film table:
+
+SELECT
+MIN (film_id) AS min_film_id,
+MAX (film_id) AS max_film_id,
+AVG (film_id) AS avg_film_id,
+MIN (release_year) AS min_release_year,
+MAX (release_year) AS max_release_year,
+AVG (release_year) AS avg_release_year,
+MIN (language_id) AS min_language_id,
+MAX (language_id) AS max_language_id,
+AVG (language_id) AS avg_language_id,
+MIN (rental_duration) AS min_rental_duration,
+MAX (rental_duration) AS max_rental_duration,
+AVG (rental_duration) AS avg_rental_duration,
+MIN (rental_rate) AS min_rental_rate,
+MAX (rental_rate) AS max_rental_rate,
+AVG (rental_rate) AS avg_rental_rate,
+MIN (length) AS min_length,
+MAX (length) AS max_length,
+AVG (length) AS avg_length,
+MIN (replacement_cost) AS min_replacement_cost,
+MAX (replacement_cost) AS max_replacement_cost,
+AVG (replacement_cost) AS avg_replacement_cost,
+MODE () WITHIN GROUP (ORDER BY title) AS mode_title,
+MODE () WITHIN GROUP (ORDER BY description) AS mode_description,
+MODE () WITHIN GROUP (ORDER BY rating) AS mode_rating,
+MODE () WITHIN GROUP (ORDER BY special_features) AS mode_special_features,
+MODE () WITHIN GROUP (ORDER BY fulltext) AS mode_fulltext
+FROM film;
+
+2. Descriptive statistics for film table:
+
+SELECT
+MIN (customer_id) AS min_customer_id,
+MAX (customer_id) AS max_customer_id,
+AVG (customer_id) AS avg_customer_id,
+MIN (store_id) AS min_store_id,
+MAX (store_id) AS max_store_id,
+AVG (store_id) AS avg_store_id,
+MIN (address_id) AS min_address_id,
+MAX (address_id) AS max_address_id,
+AVG (address_id) AS avg_address_id,
+MIN (active) AS min_active,
+MAX (active) AS max_active,
+AVG (active) AS avg_active,
+MODE () WITHIN GROUP (ORDER BY first_name) AS mode_first_name,
+MODE () WITHIN GROUP (ORDER BY last_name) AS mode_last_name,
+MODE () WITHIN GROUP (ORDER BY email) AS mode_email,
+MODE () WITHIN GROUP (ORDER BY active) AS mode_active,
+MODE () WITHIN GROUP (ORDER BY activebool) AS mode_activebool
+FROM customer;
