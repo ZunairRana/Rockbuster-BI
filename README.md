@@ -15,7 +15,7 @@ The Rockbuster Stealth Management Board has asked a series of business questions
 
 ## Data
 
-Open-source tutorial data provided by careerfoundry available [here](dvdrental.tar)
+Open-source tutorial data provided by careerfoundry available [here](https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip)
 
 ##Results
 
