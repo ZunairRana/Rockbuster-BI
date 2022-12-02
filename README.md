@@ -17,6 +17,6 @@ The Rockbuster Stealth Management Board has asked a series of business questions
 
 Open-source tutorial data provided by careerfoundry available [here](https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip)
 
-##Results
+## Results
 
 [Tableau storyboard](https://public.tableau.com/app/profile/zunair8838/viz/Rockbusterstealth/bottom10movies)
