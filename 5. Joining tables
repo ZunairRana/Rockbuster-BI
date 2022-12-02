@@ -1,0 +1,40 @@
+Rockbuster's management team would like to know the top 10 countries where Rockbuster customers are based so they can focus on building a better brand image in those markets.
+
+1. Query to find the top 10 countries for Rockbuster in terms of customer numbers:
+
+SELECT D.country, COUNT(A.customer_id) AS number_of_customers
+FROM customer A
+INNER JOIN address B ON A.address_id=B.address_id
+INNER JOIN city C ON B.city_id=C.city_id
+INNER JOIN country D ON C.country_id=D.country_id
+GROUP BY D.country
+ORDER BY COUNT (A.customer_id) DESC
+LIMIT 10;
+
+2. Query to find the top 10 cities within the top 10 countries identified in step 1:
+
+SELECT C.city, D.country, COUNT (A.customer_id) AS number_of_customers
+FROM customer A
+INNER JOIN address B ON A.address_id=B.address_id
+INNER JOIN city C ON B.city_id=C.city_id
+INNER JOIN country D ON C.country_id=D.country_id
+WHERE D.country IN ('India','China','United States','Japan','Mexico','Brazil','Russian 
+Federation','Philippines','Turkey','Indonesia')
+GROUP BY C.city, D.country
+ORDER BY COUNT (A.customer_id) DESC
+LIMIT 10;
+
+3. Query to find the top 5 customers in the top 10 cities who have paid the highest total amounts to Rockbuster:
+
+SELECT A.customer_id, A.first_name, A.last_name, E.country, D.city, SUM(B.amount) 
+AS total_paid
+FROM customer A
+INNER JOIN payment B ON A.customer_id=B.customer_id
+INNER JOIN address C ON A.address_id=C.address_id
+INNER JOIN city D ON C.city_id=D.city_id
+INNER JOIN country E ON D.country_id=E.country_id
+WHERE D.city IN ('Aurora','Atlixco','Xintai','Adoni','Dhule 
+(Dhulia)','Kurashiki','Pingxiang','Sivas','Celaya','So Leopoldo')
+GROUP BY A.customer_id, A.first_name, A.last_name, D.city, E.country
+ORDER BY SUM (B.amount) DESC
+LIMIT 10;
